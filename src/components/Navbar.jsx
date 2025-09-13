@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/meIcon.ico";
 import PillNav from "../animation/PillNav";
 import { NAVIGATION_LINKS } from "../constants";
 const Navbar = () => {
@@ -77,7 +77,7 @@ const Navbar = () => {
             pillColor="#ffffff"
             hoveredPillTextColor="#ffffff"
             pillTextColor="#000000"
-          />
+          />  
         </div>
 
         {/* Mobile menu */}

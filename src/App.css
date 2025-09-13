@@ -1,20 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 @import "tailwindcss";
 @plugin "daisyui";
-html, body{
+html,
+body {
   height: 100%;
   margin: 0;
-  
 }
-body{
-  font-family: 'Space Grotesk', sans-serif;
+body {
+  font-family: "Space Grotesk", sans-serif;
   color: #ffffff;
-  background-color: #2456df;
+  background-color: linear-gradient(90deg, #1c3988, #2a5298, #3a7bd5, #6dd5ed);
 }
-.bg-img{
-  background-image: url('./assets/bg-img5.png');
+.bg-img {
+  background-image: url("./assets/bg-img.png");
   background-size: cover;
   background-position: center;
-}   
+}
