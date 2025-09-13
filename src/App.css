@@ -10,7 +10,8 @@ html, body{
 }
 body{
   font-family: 'Space Grotesk', sans-serif;
-  color: #fff;
+  color: #ffffff;
+  background-color: #2456df;
 }
 .bg-img{
   background-image: url('./assets/bg-img5.png');
