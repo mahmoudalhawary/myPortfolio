@@ -5,30 +5,26 @@ function Projects() {
   return (
     <section className="pt-20" id="projects">
       <h2 className="lg:text-4xl text-center text-3xl mb-8">Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* 
-id: 1,
-    name: "Personal Portfolio",
-    description:
-      "A personal portfolio website built with React and Tailwind CSS to showcase my skills, projects, and contact information.",
-    image: projectImage1,
-    githubLink: "https://github.com/user/personal-portfolio", */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROJECTS.map((project) => (
           <div
             key={project.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            className="group relative rounded-3xl shadow-xl overflow-hidden cursor-pointer"
           >
             <img
               src={project.image}
               alt={project.name}
-              className="w-full h-48 object-cover"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
             />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold">{project.name}</h3>
-              <p className="text-gray-600">{project.description}</p>
+            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <h3 className="text-xl mb-2 font-semibold">{project.name}</h3>
+              <p className="mb-6 px-4 text-center">{project.description}</p>
               <a
                 href={project.githubLink}
-                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-white text-black px-4 py-2 font-semibold hover:bg-gray-200 transition"
               >
                 View on GitHub
               </a>

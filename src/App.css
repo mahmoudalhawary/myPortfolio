@@ -13,7 +13,8 @@ body {
   background-color: linear-gradient(90deg, #1c3988, #2a5298, #3a7bd5, #6dd5ed);
 }
 .bg-img {
-  background-image: url("./assets/bg-img.png");
-  background-size: cover;
+    background-image: url("./assets/bg-img.webp" );
+    background-size: cover;
   background-position: center;
 }
+  
