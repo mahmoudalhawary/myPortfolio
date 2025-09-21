@@ -13,6 +13,10 @@ import {
   faJs,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
+import Bio from "./components/Bio";
+import Skills from "./components/Skills";
+import WorkExperience from "./components/WorkExperience";
+import Education from "./components/Education";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -43,6 +47,10 @@ function App() {
           <Navbar />
           <Hero />
           <Projects />
+          <Bio/>
+          <Skills />
+          <WorkExperience />
+          <Education />
           {/* <Navbar    /> */}
         </div>
       </div>

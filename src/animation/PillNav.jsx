@@ -27,6 +27,32 @@ const PillNav = ({
   const mobileMenuRef = useRef(null);
   const navItemsRef = useRef(null);
   const logoRef = useRef(null);
+   const [showNavbar, setShowNavbar] = useState(true);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const lastScrollY = useRef(0);
+ 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      // check top
+      setIsAtTop(currentScroll === 0);
+
+      // detect scroll direction
+      if (currentScroll > lastScrollY.current && currentScroll > 50) {
+        // scrolling down
+        setShowNavbar(false);
+      } else {
+        // scrolling up
+        setShowNavbar(true);
+      }
+
+      lastScrollY.current = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const layout = () => {
@@ -96,8 +122,8 @@ const PillNav = ({
     const onResize = () => layout();
     window.addEventListener("resize", onResize);
 
-    if ((document).fonts?.ready) {
-      (document).fonts.ready.then(layout).catch(() => { });
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(layout).catch(() => {});
     }
 
     const menu = mobileMenuRef.current;
@@ -239,11 +265,28 @@ const PillNav = ({
   };
 
   return (
-    <div className="absolute top-[1em] z-[1000] w-full left-0 md:w-auto md:left-auto">
+    // <div className="absolute top-[1em] z-[1000] w-full left-0 md:w-auto md:left-auto border border-stone-50/30    bg-white/10 rounded-full shadow-[0_8px_32px_rgba(31,38,135,0.1)] backdrop-blur-lg">
+    //   <nav
+    //     className={`w-full md:w-max flex items-center justify-between md:justify-start box-border px-4 md:px-0 ${className}`}
+    //     aria-label="Primary"
+    //     style={cssVars}
+    //   >
+    <div
+      className={`fixed top-4 z-[1000] left-1/2 -translate-x-1/2 transition-all duration-300 
+        ${
+          showNavbar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        }
+        ${
+          isAtTop
+            ? "bg-transparent border-0 shadow-none"
+            : "bg-white/10 border border-stone-50/30 backdrop-blur-lg"
+        }
+        rounded-full`}
+      style={cssVars}
+    >
       <nav
-        className={`w-full md:w-max flex items-center justify-between md:justify-start box-border px-4 md:px-0 ${className}`}
-        aria-label="Primary"
-        style={cssVars}
+        className={`w-full flex items-center justify-between px-4 ${className}`}
+        style={{ height: "var(--nav-h)" }}
       >
         {isRouterLink(items?.[0]?.href) ? (
           <a
@@ -270,17 +313,16 @@ const PillNav = ({
           </a>
         ) : (
           <a
-            href={items?.[0]?.href || "#"}
+            href="#"
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
             ref={(el) => {
               logoRef.current = el;
             }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
+            className="rounded-full p-1  inline-flex items-center justify-center overflow-hidden"
             style={{
               width: "var(--nav-h)",
               height: "var(--nav-h)",
-              background: "var(--base, #000)",
             }}
           >
             <img
@@ -297,7 +339,6 @@ const PillNav = ({
           className="relative items-center rounded-full hidden md:flex ml-2"
           style={{
             height: "var(--nav-h)",
-            background: "var(--base, #000)",
           }}
         >
           <ul

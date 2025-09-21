@@ -6,7 +6,7 @@ import { HERO } from "../constants";
 
  const Hero = () => {
   return (
-    <div className="flex min-h-screen flex-wrap  items-center">
+    <div className="flex min-h-screen flex-wrap  items-center" id="Hero">
       {/* <div style={{ width: "100%", height: "600px", position: "relative" }}>
         <Orb
           hoverIntensity={0.5}

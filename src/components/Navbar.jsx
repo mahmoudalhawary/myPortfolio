@@ -29,7 +29,7 @@ const Navbar = () => {
     <div>
       <nav className="fixed left-0 right-0 top-0 z-50">
         {/* Desktop menu */}
-        <div className="mx-auto hidden max-w-2xl items-center justify-center rounded-lg    bg-black/20 py-3 backdrop-blur-lg lg:flex">
+        <div className="mx-auto hidden max-w-2xl items-center justify-center rounded-lg   py-3   lg:flex">
           {/* <div className="flex justify-between items-center gap-6 ">
             <div>
               <a href="#">
@@ -70,7 +70,7 @@ const Navbar = () => {
             logo={logo}
             logoAlt="Company Logo"
             items={NAVIGATION_LINKS}
-            activeHref="/"
+            activeHref="/Hero"
             className="custom-nav"
             ease="power2.easeOut"
             baseColor="#000000"
@@ -119,9 +119,13 @@ const Navbar = () => {
               {isMobileMenuOpen && (
             
                 <ul className="ml-4 flex flex-col gap-4 backdrop-blur-md">
-                    {NAVIGATION_LINKS.map((item, index) => (
+                  
+                  
+                        {NAVIGATION_LINKS.map((item, index) => (
                       <li key={index}>
-                        <a href={item.href} onClick={(e) => handleLinkClick(e, item.href)} className="block text-white w-full">
+                        <a href={item.href}
+                        //  onClick={(e) => handleLinkClick(e, item.href)}
+                         className="block text-white w-full">
                           {item.label}
                         </a>
                       </li>
@@ -138,4 +142,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+ export default Navbar;

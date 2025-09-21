@@ -33,7 +33,7 @@
   transform: translate3d(0, 0, 0.1px);
   position: relative;
   touch-action: none;
-}
+ }
 
 .pc-card-wrapper::before {
   content: '';
