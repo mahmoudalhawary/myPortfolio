@@ -1,24 +1,23 @@
-import React, {  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function FloatingFAIcons({
   icons = [],
-  count = 20,
+  count = 10,
   mobileCount = 6,
   colors = ["#60A5FA", "#F472B6", "#34D399", "#FBBF24", "#A78BFA"],
-  sizeRange = [18, 34],
+  sizeRange = [20, 40],
   duration = [10, 18],
   sway = 18,
   className = "",
-}) {
+})  { 
   const [isMobile, setIsMobile] = useState(false);
   const [items, setItems] = useState([]);
 
-  // 👇 نراقب حجم الشاشة (mobile/desktop)
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
     const handler = (e) => setIsMobile(e.matches);
-    handler(mq); // أول مرة
+    handler(mq);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
@@ -28,7 +27,6 @@ export default function FloatingFAIcons({
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 👇 دالة لتوليد العناصر (ونستعملها في أول مرة + عند التغيير)
   const generateItems = () => {
     if (!icons.length) return [];
 
@@ -54,7 +52,6 @@ export default function FloatingFAIcons({
     });
   };
 
-  // 🔹 توليد أولي + إعادة توليد عند تغير isMobile
   useEffect(() => {
     setItems(generateItems());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,13 +60,19 @@ export default function FloatingFAIcons({
   if (reduceMotion || !icons.length || !items.length) return null;
 
   return (
-    <div className={`pointer-events-none absolute inset-0 z-0 overflow-hidden ${className}`}>
+    <div
+      className={`pointer-events-none fixed inset-0 w-full h-full z-0 overflow-hidden ${className}`}
+      aria-hidden="true"
+    >
       <style>{`
+        /* المتغير ده يحدد المسافة اللي هتطير عليها الأيقونات (نستخدم vh عشان يتناسب مع الــ viewport) */
+        .fa-float { --float-end: 120vh; }
+
         @keyframes floatTiltFA {
           0%   { transform: translate(-50%, 0) rotate(-10deg); opacity: 0; }
           8%   { opacity: 0.9; }
-          50%  { transform: translate(calc(-50% + var(--sway)), -55vh) rotate(10deg); opacity: 0.9; }
-          100% { transform: translate(-50%, -105vh) rotate(-10deg); opacity: 0; }
+          50%  { transform: translate(calc(-50% + var(--sway)), calc(-100vh)) rotate(10deg); opacity: 0.9; }
+          100% { transform: translate(-50%, calc(var(--float-end) * -1)) rotate(-10deg); opacity: 0; }
         }
         @media (prefers-reduced-motion: reduce) {
           .fa-float { animation: none !important; }
@@ -87,7 +90,9 @@ export default function FloatingFAIcons({
             filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.35))",
             animation: `floatTiltFA ${it.dur}s linear infinite`,
             animationDelay: `${it.delay}s`,
-            "--sway": `${it.swayAmt}px`,
+            // نحط الـ sway كمتغير للـ CSS علشان يستخدم في keyframes
+            ["--sway"]: `${it.swayAmt}px`,
+            // لو عايز تغير الـ float distance على كل أيقونة: ["--float-end"]: "140vh"
           }}
           aria-hidden="true"
         >

@@ -3,8 +3,8 @@ import Orb from "../animation/Orb";
 import ProfileCard from "../animation/ProfileCard";
 import meIcon from "../assets/meIcon.ico";
 import { HERO } from "../constants";
-
- const Hero = () => {
+import { motion } from "framer-motion";
+const Hero = () => {
   return (
     <div className="flex min-h-screen flex-wrap  items-center" id="Hero">
       {/* <div style={{ width: "100%", height: "600px", position: "relative" }}>
@@ -16,9 +16,13 @@ import { HERO } from "../constants";
         />
       </div>
  */}
-  
 
-      <div className=" w-full lg:w-1/2">
+      <motion.div
+        className=" w-full lg:w-1/2"
+        initial={{ x: -200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <h2 className=" my-8 p-2 text-4xl font-bold md:text-5xl lg:text-[7rem]">
           {HERO.name}{" "}
         </h2>
@@ -26,8 +30,13 @@ import { HERO } from "../constants";
           {HERO.greet}
         </p>
         <p className="mb-8 p-2 text-xl">{HERO.description}</p>
-      </div>
-      <div className="w-full lg:w-1/2 lg:p-8">
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="w-full lg:w-1/2 lg:p-8"
+      >
         <div className="flex justify-center ">
           <ProfileCard
             name="Mahmoud Nasr"
@@ -44,7 +53,7 @@ import { HERO } from "../constants";
             }
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

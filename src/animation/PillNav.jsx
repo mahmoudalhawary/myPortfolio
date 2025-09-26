@@ -272,7 +272,7 @@ const PillNav = ({
     //     style={cssVars}
     //   >
     <div
-      className={`fixed top-4 z-[1000] left-1/2 -translate-x-1/2 transition-all duration-300 
+      className={` p-1 fixed top-4 z-[1000] left-1/2 -translate-x-1/2 transition-all duration-300 
         ${
           showNavbar ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
         }

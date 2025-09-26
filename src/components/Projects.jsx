@@ -1,23 +1,41 @@
 import React from "react";
 import { PROJECTS } from "../constants";
+import {motion} from "framer-motion";
 
 function Projects() {
   return (
     <section className="pt-20" id="projects">
-      <h2 className="lg:text-4xl text-center text-3xl mb-8">Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.h2
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+ 
+      className="lg:text-4xl text-center text-3xl mb-8">Projects</motion.h2>
+      <div 
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROJECTS.map((project) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0 ,scale:0.9}}
+            whileInView={{ opacity: 1, scale:1}}
+            transition={{ duration: 0.8, delay: project.id * 0.1}}
+            whileHover={{ scale: 1.05  }}
             key={project.id}
             className="group relative rounded-3xl shadow-xl overflow-hidden cursor-pointer"
           >
-            <img
+            <motion.img
+              whileHover={{ scale: 1.1 }}
               src={project.image}
               alt={project.name}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <motion.div
+
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            
+            className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <h3 className="text-xl mb-2 font-semibold">{project.name}</h3>
               <p className="mb-6 px-4 text-center">{project.description}</p>
               <a
@@ -28,8 +46,8 @@ function Projects() {
               >
                 View on GitHub
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
       </div>
     </section>

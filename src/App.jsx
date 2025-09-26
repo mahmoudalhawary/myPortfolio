@@ -17,19 +17,21 @@ import Bio from "./components/Bio";
 import Skills from "./components/Skills";
 import WorkExperience from "./components/WorkExperience";
 import Education from "./components/Education";
+import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div className=" relative h-full overflow-y-hidden  antialiased">
+      <div className=" ">
         <FloatingFAIcons
-          icons={[faHtml5, faCss3Alt, faJs, faReact, faBootstrap]}
-          count={10}
-          colors={["#60A5FA", "#34D399", "#FBBF24", "#F472B6", "#A78BFA"]}
-          sizeRange={[20, 34]}
-          duration={[12, 20]}
-          sway={22}
+            icons={[faHtml5, faCss3Alt, faJs, faReact, faBootstrap]}
+            count={10}
+            colors={["#60A5FA", "#34D399", "#FBBF24", "#F472B6", "#A78BFA"]}
+            sizeRange={[20, 40]}
+            duration={[12, 20]}
+            sway={22}
         />{" "}
         <div
           className="pointer-events-none absolute inset-0 opacity-10"
@@ -51,6 +53,8 @@ function App() {
           <Skills />
           <WorkExperience />
           <Education />
+          <ContactForm />
+          <Footer />
           {/* <Navbar    /> */}
         </div>
       </div>

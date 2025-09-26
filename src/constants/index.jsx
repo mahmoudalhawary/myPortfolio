@@ -1,10 +1,12 @@
-  import {
+import {
   FaXTwitter,
   FaGithub,
   FaLinkedin,
   FaFacebook,
   FaDiscord,
   FaInstagram,
+  FaWhatsapp,
+  FaEnvelope,
 } from "react-icons/fa6";
 
 import projectImage1 from "../assets/project1.jpeg";
@@ -168,29 +170,71 @@ export const EDUCATION = [
   },
 ];
 
+
+// done
 export const SOCIAL_MEDIA_LINKS = [
   {
-    href: "https://x.com/",
-    icon: <FaFacebook fontSize={25} className="hover:opacity-80" />,
+    href: "https://www.facebook.com/mahmoud.nasr.876051",
+    icon: (
+      <FaFacebook
+        fontSize={25}
+        className="hover:text-[#1877F2] transition-colors duration-300 hover:scale-125"
+      />
+    ),
   },
   {
-    href: "https://x.com/",
-    icon: <FaDiscord fontSize={25} className="hover:opacity-80" />,
+    href: "https://wa.me/201006132539",
+    icon: (
+      <FaWhatsapp
+        fontSize={25}
+        className="hover:text-[#25D366] transition-colors duration-300 hover:scale-125"
+      />
+    ),
   },
   {
-    href: "https://x.com/",
-    icon: <FaInstagram fontSize={25} className="hover:opacity-80" />,
+    href: "https://www.instagram.com/m_a_h_m_o_u_d3759?igsh=NDN6b21meHYzZng1",
+    icon: (
+      <FaInstagram
+        fontSize={25}
+        className="hover:text-[#E4405F] transition-colors duration-300 hover:scale-125"
+      />
+    ),
+  },
+  // {
+  //   href: "https://x.com/",
+  //   icon: (
+  //     <FaXTwitter
+  //       fontSize={25}
+  //       className="hover:text-black transition-colors duration-300 hover:scale-125"
+  //     />
+  //   ),
+  // },
+  {
+    href: "https://github.com/mahmoudalhawary",
+    icon: (
+      <FaGithub
+        fontSize={25}
+        className="hover:text-[#333] transition-colors duration-300 hover:scale-125"
+      />
+    ),
   },
   {
-    href: "https://x.com/",
-    icon: <FaXTwitter fontSize={25} className="hover:opacity-80" />,
+    href: "https://www.linkedin.com/in/mahmoud-alhawary1",
+    icon: (
+      <FaLinkedin
+        fontSize={25}
+        className="hover:text-[#0077B5] transition-colors duration-300 hover:scale-125"
+      />
+    ),
   },
-  {
-    href: "https://github.com/",
-    icon: <FaGithub fontSize={25} className="hover:opacity-80" />,
-  },
-  {
-    href: "https://www.linkedin.com/",
-    icon: <FaLinkedin fontSize={25} className="hover:opacity-80" />,
-  },
+ 
+{
+  href: "mailto:mahmoudnasr11178@gmail.com",
+  icon: (
+    <FaEnvelope
+      fontSize={25}
+      className="hover:text-[#EA4335] transition-colors duration-300 hover:scale-125  "
+    />
+  ),
+}
 ];
