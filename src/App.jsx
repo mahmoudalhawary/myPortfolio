@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Hero from "./components/Hero";
-// import Navbar from "./components/Navbar";
-import PillNav from "./animation/PillNav";
+ import PillNav from "./animation/PillNav";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import FloatingFAIcons from "../src/animation/BubblesBackground/FloatingFAIcons";
@@ -19,6 +18,7 @@ import WorkExperience from "./components/WorkExperience";
 import Education from "./components/Education";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import FloatingSocial from "./animation/FloatingActionButtons";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -55,6 +55,7 @@ function App() {
           <Education />
           <ContactForm />
           <Footer />
+          <FloatingSocial />
           {/* <Navbar    /> */}
         </div>
       </div>

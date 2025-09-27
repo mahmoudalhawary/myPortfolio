@@ -73,6 +73,7 @@ function ContactForm() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
+      id="contact"
     >
       <motion.div
         className="mx-auto max-w-2xl text-center"
@@ -85,10 +86,7 @@ function ContactForm() {
         </h2>
       </motion.div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="mx-auto mt-16 max-w-xl sm:mt-20"
-      >
+      <form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
         <motion.div
           className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2"
           initial="hidden"
@@ -149,7 +147,7 @@ function ContactForm() {
               className="mt-2 block w-full rounded-md bg-white/5 px-3.5 py-2 text-white placeholder:text-gray-500 focus:outline-indigo-500"
             />
             {errorMessage.email && (
-<motion.p
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -178,7 +176,7 @@ function ContactForm() {
               className="mt-2 block w-full rounded-md bg-white/5 px-3.5 py-2 text-white placeholder:text-gray-500 focus:outline-indigo-500"
             />
             {errorMessage.phoneNumber && (
-             <motion.p
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -207,7 +205,7 @@ function ContactForm() {
               className="mt-2 block w-full rounded-md bg-white/5 px-3.5 py-2 text-white placeholder:text-gray-500 focus:outline-indigo-500"
             />
             {errorMessage.message && (
-          <motion.p
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
