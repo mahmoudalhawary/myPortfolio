@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 const DownloadCV = () => {
   return (
     <motion.a
-      href="https://drive.google.com/uc?export=download&id=1n8lxfzUAFUbYFojFir8EKohOxOQJ0Zof"
+
+      // href="https://drive.google.com/uc?export=download&id=1n8lxfzUAFUbYFojFir8EKohOxOQJ0Zof"
+      href="https://drive.google.com/uc?export=download&id=172_H_Mr1-bgx0VV6_eRBdlbQbSydNlqb"
       download="Mahmoud_Nasr_CV.pdf"
       target="_blank"
       rel="noopener noreferrer"

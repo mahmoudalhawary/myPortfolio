@@ -46,7 +46,7 @@ function Footer() {
         className="text-center text-sm text-gray-500 mt-2"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.7 }}
+        transition={{ duration: 0.8, delay: 1.1 }}
       >
         &copy;  Mahmoud Nasr {new Date().getFullYear()} . All rights reserved.
       </motion.p>

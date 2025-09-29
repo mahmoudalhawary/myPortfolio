@@ -11,7 +11,7 @@ const containerVariants = {
 };
 const itemVariants = {
   hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
 };
 function Skills() {
   return (
@@ -39,9 +39,9 @@ function Skills() {
               {skill.icon}{" "}
               <h3 className="px-6 text-lg lg:text-2xl">{skill.name}</h3>
             </div>
-            <div className="    text-md font-semibold lg:text-xl">
+            {/* <div className="    text-md font-semibold lg:text-xl">
               <span className="text-sm text-stone-400">{skill.experience}</span>
-            </div>
+            </div> */}
           </motion.div>
         ))}
       </motion.div>

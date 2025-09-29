@@ -31,42 +31,7 @@ const Navbar = () => {
       <nav className="fixed left-0 right-0 top-0 z-50">
         {/* Desktop menu */}
         <div className="mx-auto hidden max-w-2xl items-center justify-center rounded-lg   py-3  lg:flex">
-          {/* <div className="flex justify-between items-center gap-6 ">
-            <div>
-              <a href="#">
-                <img src={logo} alt="logo" width={150} />
-              </a>
-            </div>
-            <div>
-              <ul className="flex gap-6 text-white">
-                <li>
-                  <a
-                    href="#about"
-                    onClick={(e) => handleLinkClick(e, "#about")}
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#projects"
-                    onClick={(e) => handleLinkClick(e, "#projects")}
-                  >
-                    Projects
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    onClick={(e) => handleLinkClick(e, "#contact")}
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div> */}
-
+   
           <PillNav
             logo={logo}
             logoAlt="Company Logo"
@@ -85,9 +50,7 @@ const Navbar = () => {
         <div className="  rounded-lg  p-3 backdrop-blur-lg lg:hidden">
           <div className="flex justify-between items-center">
             <div>
-              {/* <a href="#">
-                <img src={logo} alt="logo" width={150} />
-              </a> */}
+             
             </div>
 
             <div className="flex-col-reverse   items-between justify-between   w-full">

@@ -17,7 +17,7 @@ function Education() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: index * 0.5 }}
+          transition={{ duration: 1, delay: index * 0.3 }}
           key={index}
           className="mb-6 p-10"
         >

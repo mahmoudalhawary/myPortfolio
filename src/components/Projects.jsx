@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { PROJECTS } from "../constants";
 import { motion } from "framer-motion";
-import { FaGithub, FaGlobe } from "react-icons/fa"; // استدعاء أيقونات
+import { FaGithub, FaGlobe } from "react-icons/fa";
 
 function Projects() {
+  const [activeId, setActiveId] = useState(null);
+
   return (
     <section className="pt-20" id="projects">
       <motion.h2
@@ -17,31 +19,35 @@ function Projects() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROJECTS.map((project) => (
           <motion.div
+            key={project.id}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: project.id * 0.1 }}
             whileHover={{ scale: 1.05 }}
-            key={project.id}
             className="group relative rounded-3xl shadow-xl overflow-hidden cursor-pointer"
+            onClick={() =>
+              setActiveId(activeId === project.id ? null : project.id)
+            }
           >
-            <motion.img
-              whileHover={{ scale: 1.1 }}
-              src={project.image}
+            <img
+               src={project.image}
               alt={project.name}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
             />
+
             <motion.div
               initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
+              animate={{
+                opacity: activeId === project.id ? 1 : 0,
+              }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white transition-opacity duration-500"
             >
               <h3 className="text-xl mb-2 font-semibold">{project.name}</h3>
               <p className="mb-6 px-4 text-center">{project.description}</p>
 
               <div className="flex gap-4">
-                {/* زرار GitHub */}
                 <a
                   href={project.githubLink}
                   target="_blank"
@@ -51,7 +57,6 @@ function Projects() {
                   <FaGithub /> GitHub
                 </a>
 
-                {/* زرار Live Demo */}
                 {project.LiveLink && (
                   <a
                     href={project.LiveLink}

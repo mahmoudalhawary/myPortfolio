@@ -70,45 +70,21 @@ function ContactForm() {
   return (
     <motion.div
       className="isolate bg-gray-50/10 px-6 py-24 sm:py-32 lg:px-8 w-full max-w-3xl rounded-3xl border border-white/10"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
       id="contact"
     >
-      <motion.div
-        className="mx-auto max-w-2xl text-center"
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
+      <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-4xl font-semibold text-white sm:text-5xl">
           Let's Contact
         </h2>
-      </motion.div>
+      </div>
 
       <form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
-        <motion.div
-          className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2"
-          initial="hidden"
-          whileInView="visible"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.3,
-              },
-            },
-          }}
-        >
+        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           {/* Full Name */}
-          <motion.div
-            className="sm:col-span-2"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="sm:col-span-2">
             <input
               placeholder="Full Name"
               name="name"
@@ -118,26 +94,12 @@ function ContactForm() {
               className="mt-2 block w-full rounded-md bg-white/5 px-3.5 py-2 text-white placeholder:text-gray-500 focus:outline-indigo-500"
             />
             {errorMessage.name && (
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-red-500 text-sm mt-1"
-              >
-                {errorMessage.name}
-              </motion.p>
+              <p className="text-red-500 text-sm mt-1">{errorMessage.name}</p>
             )}
-          </motion.div>
+          </div>
 
           {/* Email */}
-          <motion.div
-            className="sm:col-span-2"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="sm:col-span-2">
             <input
               placeholder="Email"
               name="email"
@@ -147,26 +109,12 @@ function ContactForm() {
               className="mt-2 block w-full rounded-md bg-white/5 px-3.5 py-2 text-white placeholder:text-gray-500 focus:outline-indigo-500"
             />
             {errorMessage.email && (
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-red-500 text-sm mt-1"
-              >
-                {errorMessage.email}
-              </motion.p>
+              <p className="text-red-500 text-sm mt-1">{errorMessage.email}</p>
             )}
-          </motion.div>
+          </div>
 
           {/* Phone number */}
-          <motion.div
-            className="sm:col-span-2"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="sm:col-span-2">
             <input
               name="phoneNumber"
               type="text"
@@ -176,26 +124,14 @@ function ContactForm() {
               className="mt-2 block w-full rounded-md bg-white/5 px-3.5 py-2 text-white placeholder:text-gray-500 focus:outline-indigo-500"
             />
             {errorMessage.phoneNumber && (
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-red-500 text-sm mt-1"
-              >
+              <p className="text-red-500 text-sm mt-1">
                 {errorMessage.phoneNumber}
-              </motion.p>
+              </p>
             )}
-          </motion.div>
+          </div>
 
           {/* Message */}
-          <motion.div
-            className="sm:col-span-2"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="sm:col-span-2">
             <textarea
               placeholder="Your message"
               name="message"
@@ -205,16 +141,9 @@ function ContactForm() {
               className="mt-2 block w-full rounded-md bg-white/5 px-3.5 py-2 text-white placeholder:text-gray-500 focus:outline-indigo-500"
             />
             {errorMessage.message && (
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-red-500 text-sm mt-1"
-              >
-                {errorMessage.message}
-              </motion.p>
+              <p className="text-red-500 text-sm mt-1">{errorMessage.message}</p>
             )}
-          </motion.div>
+          </div>
 
           {/* Success/Error Messages */}
           {successMessage && (
@@ -222,6 +151,7 @@ function ContactForm() {
               className="sm:col-span-2 text-green-500 text-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
             >
               {successMessage}
             </motion.div>
@@ -231,17 +161,18 @@ function ContactForm() {
               className="sm:col-span-2 text-red-500 text-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
             >
               {errorMessage.general}
             </motion.div>
           )}
-        </motion.div>
+        </div>
 
         <motion.div
           className="mt-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           <button
             type="submit"
